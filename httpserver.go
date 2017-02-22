@@ -1,5 +1,6 @@
 // https://golang.org/doc/articles/wiki/
-//
+// http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/
+// https://thenewstack.io/make-a-restful-json-api-go/
 package main
 
 import (
