@@ -9,10 +9,12 @@ import (
 	"net/http"
 )
 
+// HandlerImages - handler for /images/ url
 func HandlerImages(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Requested Image Is %s!", r.URL.Path[1:])
 }
 
+// HandlerRSS - handler for /rss/ url
 func HandlerRSS(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Requested RSS is %s!", r.URL.Path[1:])
 }
