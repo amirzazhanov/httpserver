@@ -9,11 +9,16 @@ import (
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+func HandlerImages(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Requested Image Is %s!", r.URL.Path[1:])
+}
+
+func HandlerRSS(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Requested RSS is %s!", r.URL.Path[1:])
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/images/", HandlerImages)
+	http.HandleFunc("/rss/", HandlerRSS)
 	http.ListenAndServe(":8080", nil)
 }
