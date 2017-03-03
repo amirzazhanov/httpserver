@@ -7,6 +7,7 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -26,12 +27,11 @@ func HandlerHTML(w http.ResponseWriter, r *http.Request) {
 	pTmp := &Page{Title: "TestPage", Body: []byte("This is a sample simple Page.")}
 	t, _ := template.ParseFiles("template.html")
 	t.Execute(w, pTmp)
-	fmt.Println("Connection-------->")
-	fmt.Println("Connection--->")
+	log.Printf("%s", r.URL.Path[1:])
 }
 
 func main() {
 	http.HandleFunc("/images/", HandlerImages)
 	http.HandleFunc("/html/", HandlerHTML)
-	http.ListenAndServe(":8080", nil)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
